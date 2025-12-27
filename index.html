@@ -1,75 +1,179 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Поддержка</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #1e1e2f;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поддержка</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-    h1 {
-      margin-bottom: 30px;
-      text-align: center;
-      font-weight: normal;
-    }
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at bottom, #1b2b3a, #0c1620);
+  overflow: hidden;
+  font-family: 'Great Vibes', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #ff8a65, #ffb74d);
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 600;
-      padding: 15px 25px;
-      border-radius: 12px;
-      margin: 10px 0;
-      width: 300px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 5% 10%, white, transparent),
+    radial-gradient(1px 1px at 15% 80%, white, transparent),
+    radial-gradient(1px 1px at 25% 40%, white, transparent),
+    radial-gradient(1px 1px at 35% 20%, white, transparent),
+    radial-gradient(1px 1px at 45% 70%, white, transparent),
+    radial-gradient(1px 1px at 55% 35%, white, transparent),
+    radial-gradient(1px 1px at 65% 85%, white, transparent),
+    radial-gradient(1px 1px at 75% 25%, white, transparent),
+    radial-gradient(1px 1px at 85% 55%, white, transparent),
+    radial-gradient(1px 1px at 95% 75%, white, transparent);
+  animation: twinkle 5s infinite alternate;
+  opacity: 0.85;
+  z-index: 0;
+}
 
-    .button span.emoji {
-      margin-right: 10px;
-      font-size: 22px;
-    }
+@keyframes twinkle {
+  from { opacity: 0.4; }
+  to   { opacity: 0.9; }
+}
 
-    .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(255, 183, 77, 0.5);
-    }
+/* 🌙 ЛУНА */
+.moon {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 90px;
+  height: 90px;
+  background: #fff4cc;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255,244,204,0.6);
+  z-index: 1;
+}
+.bird {
+  position: absolute;
+  font-size: 44px;
+  right: -10%;
+  top: 35%;
+  animation: birdWave 22s linear infinite;
+  z-index: 2;
+}
 
-    .button:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-  </style>
+@keyframes birdWave {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-30vw, -30px); }
+  50%  { transform: translate(-60vw, 40px); }
+  75%  { transform: translate(-90vw, -25px); }
+  100% { transform: translate(-130vw, 0); }
+}
+
+.container {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 35px;
+}
+
+h1 span span {
+  display: inline-block;
+}
+
+.color1 { color: #ffd6e8; }
+.color2 { color: #cfe9ff; }
+.color3 { color: #fff4cc; }
+.color4 { color: #ffefc1; }
+.color5 { color: #d0ffc4; }
+.color6 { color: #ffd1f0; }
+.color7 { color: #c6e0ff; }
+.color8 { color: #fff0d1; }
+
+.cloud {
+  width: 360px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.85); /* прозрачность 85% */
+  border-radius: 50px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 16px 28px rgba(0,0,0,0.25);
+  animation: float 7s ease-in-out infinite;
+  font-size: 28px;
+  color: #00008B; /* тёмно-синий */
+}
+
+
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  h1 { font-size: 32px; }
+
+  .cloud { 
+    width: 63%;       
+    height: 100px;   
+    font-size: 20px; 
+    border-radius: 40px;
+    padding: 0 10px;
+  }
+
+  .moon { width: 60px; height: 60px; right: 30px; }
+}
+
+</style>
 </head>
+
 <body>
 
-  <h1>Если хотите поддержать меня, я буду очень благодарна:</h1>
+<div class="stars"></div>
+<div class="moon"></div>
+<div class="bird">🕊️</div>
 
-  <a class="button" href="https://messenger.online.sberbank.ru/sl/51spjzuAc07hZVPuy" target="_blank">
-    <span class="emoji">☕</span>Подарить мне чашечку кофе 333р
+<div class="container">
+  <h1>
+    <span>
+      <span class="color1">Е</span><span class="color2">с</span><span class="color3">л</span><span class="color4">и</span><span class="color5"> </span>
+      <span class="color6">в</span><span class="color7">ы</span><span class="color8"> </span>
+      <span class="color1">х</span><span class="color2">о</span><span class="color3">т</span><span class="color4">и</span><span class="color5">т</span><span class="color6">е</span>
+    </span><br>
+    <span>
+      <span class="color1">п</span><span class="color2">о</span><span class="color3">д</span><span class="color4">д</span><span class="color5">е</span><span class="color6">р</span><span class="color7">ж</span><span class="color8">а</span><span class="color1">т</span><span class="color2">ь</span>
+      <span class="color3"> </span>
+      <span class="color4">м</span><span class="color5">е</span><span class="color6">н</span><span class="color7">я</span>
+    </span><br>
+    <span>
+      <span class="color1">я</span><span class="color2"> </span><span class="color3">б</span><span class="color4">у</span><span class="color5">д</span><span class="color6">у</span>
+      <span class="color7"> </span><span class="color8">о</span><span class="color1">ч</span><span class="color2">е</span><span class="color3">н</span><span class="color4">ь</span>
+      <span class="color5"> </span><span class="color6">б</span><span class="color7">л</span><span class="color8">а</span><span class="color1">г</span><span class="color2">о</span><span class="color3">д</span><span class="color4">а</span><span class="color5">р</span><span class="color6">н</span><span class="color7">а</span>
+    </span>
+  </h1>
+
+  <a class="cloud" href="https://www.tinkoff.ru/rm/r_itVrkMCcWz.necQCXTGZX/SEejA64961" target="_blank">
+    🪷 Чашечка кофе 333р
   </a>
 
-  <a class="button" href="https://messenger.online.sberbank.ru/sl/51spjzuAc07hZVPuy" target="_blank">
-    <span class="emoji">🎉</span>Угостить меня обедом 555р
+  <a class="cloud" href="https://www.tinkoff.ru/rm/r_itVrkMCcWz.necQCXTGZX/SEejA64961" target="_blank">
+    🏵️ Обед 555р
   </a>
 
-  <a class="button" href="https://messenger.online.sberbank.ru/sl/51spjzuAc07hZVPuy" target="_blank">
-    <span class="emoji">🎁</span>Сделать подарок на новогодние праздники 888р
+  <a class="cloud" href="https://www.tinkoff.ru/rm/r_itVrkMCcWz.necQCXTGZX/SEejA64961" target="_blank">
+    🌷 Праздничный подарок 888р
   </a>
+</div>
 
 </body>
 </html>
